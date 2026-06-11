@@ -139,7 +139,7 @@
     <div class="actions">
       <input type="text" class="search" placeholder="Buscar...">
       <span>Login</span>
-      <span>Carrinho (0)</span>
+      <span>Carrinho</span>
     </div>
   </header>
 
@@ -153,34 +153,27 @@
 
   <div class="grid">
 
-    <div class="card">
-      <img src="tobacco-vanille.jpg" alt="Tobacco Vanille">
+    <div class="card" data-name="Tobacco Vanille" data-price="45.00">
+      <img src="tobacco-vanille.jpeg" alt="Tobacco Vanille">
       <h3>Tobacco Vanille</h3>
-      <p class="price">€59,90</p>
-      <button>Ver detalhes</button>
+      <p class="price">€45,00</p>
+      <button class="add-to-cart">Adicionar ao cesto</button>
     </div>
 
-    <div class="card">
-      <img src="baccarat-rouge-540.jpg" alt="Baccarat Rouge 540">
+    <div class="card" data-name="Baccarat Rouge 540" data-price="60.00">
+      <img src="baccarat.jpeg" alt="Baccarat Rouge 540">
       <h3>Baccarat Rouge 540</h3>
-      <p class="price">€79,90</p>
-      <button>Ver detalhes</button>
+      <p class="price">€60,00</p>
+      <button class="add-to-cart">Adicionar ao cesto</button>
     </div>
 
-    <div class="card">
-      <img src="tshirt-branca.jpg" alt="T-shirt branca">
-      <h3>T‑shirt Premium Branca</h3>
-      <p class="price">€19,90</p>
-      <button>Ver detalhes</button>
-    </div>
+  </div>
 
-    <div class="card">
-      <img src="acessorio.jpg" alt="Acessório">
-      <h3>Acessório Elegante</h3>
-      <p class="price">€14,90</p>
-      <button>Ver detalhes</button>
-    </div>
-
+  <!-- CHECKOUT BUTTON -->
+  <div style="text-align:center; margin-bottom:60px;">
+    <button id="checkout-btn" style="padding:12px 24px; border:1px solid #111; background:#111; color:#fff; text-transform:uppercase; cursor:pointer; font-size:0.85rem;">
+      Finalizar pedido no WhatsApp
+    </button>
   </div>
 
   <!-- FOOTER -->
@@ -188,6 +181,43 @@
     © 2026 DD STORES — Variedade · Qualidade · Estilo
   </footer>
 
-</body>
-</html>
+  <!-- CART SCRIPT -->
+  <script>
+    const cart = [];
+    const whatsappNumber = "447747908758"; // sem + e sem espaços
 
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.card');
+        const name = card.dataset.name;
+        const price = parseFloat(card.dataset.price);
+
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({ name, price, qty: 1 });
+        }
+
+        alert(name + " foi adicionado ao cesto.");
+      });
+    });
+
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert("O cesto está vazio.");
+        return;
+      }
+
+      let message = "Olá, gostaria de fazer um pedido:%0A%0A";
+      let total = 0;
+
+      cart.forEach(item => {
+        const lineTotal = item.price * item.qty;
+        total += lineTotal;
+        message += `• ${item.name} (x${item.qty}) - €${lineTotal.toFixed(2)}%0A`;
+      });
+
+      message += `%0ATotal: €${total.toFixed(2)}%0A%0ANome:%0AMorada:%0AMétodo de pagamento:`;
+
+      const url = `https://wa.me/${whatsapp
