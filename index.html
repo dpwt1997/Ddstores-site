@@ -220,4 +220,11 @@
 
       message += `%0ATotal: €${total.toFixed(2)}%0A%0ANome:%0AMorada:%0AMétodo de pagamento:`;
 
-      const url = `https://wa.me/${whatsapp
+      const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+      window.open(url, "_blank");
+    });
+  </script>
+
+</body>
+</html>
+
