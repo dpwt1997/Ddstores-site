@@ -4,25 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DD Stores | Loja Oficial</title>
-    .menu {
-    background: #000;
-    padding: 15px;
-    text-align: center;
-}
-
-.menu a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.menu a:hover {
-    color: #f0c040;
-}
-
 
     <style>
         body {
@@ -30,6 +11,26 @@
             font-family: Arial, sans-serif;
             background: #ffffff;
             color: #111;
+        }
+
+        /* MENU */
+        .menu {
+            background: #000;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #f0c040;
         }
 
         header {
@@ -40,12 +41,6 @@
             font-size: 26px;
             letter-spacing: 2px;
             font-weight: bold;
-        }
-
-        .banner {
-            width: 100%;
-            height: 300px;
-            background: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9') center/cover no-repeat;
         }
 
         h2 {
@@ -89,40 +84,13 @@
             font-weight: bold;
             margin: 10px 0;
         }
-
-        button {
-            background: #000;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #444;
-        }
     </style>
 </head>
 
 <body>
 
-<header>DD STORES</header>
-
-<div class="banner"></div>
-
-<h2>Novidades & Destaques</h2>
-
-<div id="lista-produtos"></div>
-
-<script src="script.js"></script>
-<script>
-    carregarProdutos(); 
-</script>
-
-</body>
-    <nav class="menu">
+<!-- MENU -->
+<nav class="menu">
     <a href="index.html">Home</a>
     <a href="mulher.html">Mulher</a>
     <a href="homem.html">Homem</a>
@@ -131,4 +99,16 @@
     <a href="promocoes.html">Promoções</a>
 </nav>
 
+<header>DD STORES — Novidades & Destaques</header>
+
+<h2>Produtos em Destaque</h2>
+
+<div id="lista-produtos"></div>
+
+<script src="script.js"></script>
+<script>
+    carregarProdutos();
+</script>
+
+</body>
 </html>
