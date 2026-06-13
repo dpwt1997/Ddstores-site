@@ -1,12 +1,12 @@
 [
     {
         "nome": "Tobacco Vanille",
-        "preco": 45,
+        "preco": 150,
         "imagem": "https://images.unsplash.com/photo-1600180758890-6d3a4d3e6f3a"
     },
     {
         "nome": "Baccarat Rouge 540",
-        "preco": 55,
+        "preco": 150,
         "imagem": "https://images.unsplash.com/photo-1585386959984-a4155223f3c9"
     }
 ]
