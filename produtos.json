@@ -2,45 +2,72 @@
     {
         "nome": "Tobacco Vanille",
         "preco": 150,
-        "imagem": "https://images.unsplash.com/photo-1600180758890-6d3a4d3e6f3a"
+        "imagem": "https://images.unsplash.com/photo-1600180758890-6d3a4d3e6f3a",
+        "categoria": "Perfumes"
     },
     {
         "nome": "Baccarat Rouge 540",
         "preco": 150,
-        "imagem": "https://images.unsplash.com/photo-1585386959984-a4155223f3c9"
+        "imagem": "https://images.unsplash.com/photo-1585386959984-a4155223f3c9",
+        "categoria": "Perfumes"
+    },
+    {
+        "nome": "Very Good Girl Glam",
+        "preco": 100,
+        "imagem": "https://images.unsplash.com/photo-1615634260167-3f6c1e5f9b1d",
+        "categoria": "Perfumes"
+    },
+
+    {
+        "nome": "Vestido Preto Elegante",
+        "preco": 30,
+        "imagem": "https://images.unsplash.com/photo-1520975918318-3a6c8c8f1f5b",
+        "categoria": "Mulher"
+    },
+    {
+        "nome": "Casaco Feminino Premium",
+        "preco": 40,
+        "imagem": "https://images.unsplash.com/photo-1542060748-10c28b62716f",
+        "categoria": "Mulher"
+    },
+
+    {
+        "nome": "T-shirt Masculina Branca",
+        "preco": 15,
+        "imagem": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "categoria": "Homem"
+    },
+    {
+        "nome": "Casaco Masculino Streetwear",
+        "preco": 35,
+        "imagem": "https://images.unsplash.com/photo-1539533113208-f6df8cc8b543",
+        "categoria": "Homem"
+    },
+
+    {
+        "nome": "Relógio Minimalista",
+        "preco": 25,
+        "imagem": "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
+        "categoria": "Acessórios"
+    },
+    {
+        "nome": "Óculos de Sol Premium",
+        "preco": 20,
+        "imagem": "https://images.unsplash.com/photo-1511497584788-876760111969",
+        "categoria": "Acessórios"
+    },
+
+    {
+        "nome": "Perfume em Promoção",
+        "preco": 20,
+        "imagem": "https://images.unsplash.com/photo-1585386959984-a4155223f3c9",
+        "categoria": "Promoções"
+    },
+    {
+        "nome": "T-shirt em Promoção",
+        "preco": 10,
+        "imagem": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "categoria": "Promoções"
     }
 ]
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DD Stores | Perfumes</title>
 
-    <style>
-        body { margin: 0; font-family: Arial; background: #fff; color: #111; }
-        header { background: #000; color: #fff; padding: 20px; text-align: center; font-size: 26px; letter-spacing: 2px; }
-        h2 { text-align: center; margin-top: 40px; font-size: 28px; }
-        #lista-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; padding: 20px; max-width: 1100px; margin: auto; }
-        .produto-card { background: #fff; border: 1px solid #eee; padding: 15px; text-align: center; border-radius: 8px; transition: 0.3s; }
-        .produto-card:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .produto-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 6px; }
-        .preco { font-size: 20px; font-weight: bold; margin: 10px 0; }
-    </style>
-</head>
-
-<body>
-
-<header>DD STORES — Perfumes</header>
-
-<h2>Perfumes</h2>
-
-<div id="lista-produtos"></div>
-
-<script src="script.js"></script>
-<script>
-    carregarProdutos("Perfumes");
-</script>
-
-</body>
-</html>
