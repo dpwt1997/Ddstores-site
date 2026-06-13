@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a0a;
+            background-color: #000;
             color: #fff;
         }
 
@@ -41,16 +41,16 @@
         /* HERO */
         .hero {
             text-align: center;
-            padding: 120px 20px;
+            padding: 120px 20px 80px;
             background: linear-gradient(180deg, #000, #111);
         }
 
         .hero img {
-            width: 200px;
+            width: 220px;
             margin-bottom: 20px;
-            background: white; /* fundo temporário para ver o logo */
-            padding: 10px;
-            border-radius: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero h1 {
@@ -64,22 +64,22 @@
         .hero p {
             font-size: 16px;
             color: #ccc;
-            margin-bottom: 25px;
+            margin-bottom: 0;
         }
 
         /* SECÇÃO DESTAQUES */
         h2 {
             font-family: 'Playfair Display', serif;
             text-align: center;
-            margin-top: 60px;
-            font-size: 32px;
+            margin-top: 50px;
+            font-size: 30px;
             color: #d4af37;
         }
 
         .produtos-container {
             width: 90%;
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 30px auto 60px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 28px;
@@ -141,9 +141,10 @@
 
 <!-- HERO -->
 <section class="hero">
+    <!-- aqui usamos a logo nova que subiste em images/logo-ddstores.png -->
     <img src="images/logo-ddstores.png" alt="DD Stores Logo">
     <h1>Luxury & Exclusivity</h1>
-    <p>Descubra o universo DD STORES — perfumes, moda e elegância.</p>
+    <p>Perfumes, moda e elegância com a assinatura DD STORES.</p>
 </section>
 
 <h2>Novidades & Destaques</h2>
@@ -157,5 +158,3 @@
 
 </body>
 </html>
-
-
