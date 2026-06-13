@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DD Stores | Loja Oficial</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #111;
+        }
+
+        header {
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 26px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .banner {
+            width: 100%;
+            height: 300px;
+            background: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9') center/cover no-repeat;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 28px;
+        }
+
+        #lista-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .produto-card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .produto-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .produto-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .preco {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #444;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>DD STORES</header>
+
+<div class="banner"></div>
+
+<h2>Novidades & Destaques</h2>
+
+<div id="lista-produtos"></div>
+
 <script src="script.js"></script>
+<script>
+    carregarProdutos(); 
+</script>
+
+</body>
+</html>
