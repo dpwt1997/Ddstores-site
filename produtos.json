@@ -1,18 +1,8 @@
-[
-  {
-    "id": 1,
-    "nome": "Acqua di Giò Profondo",
-    "categoria": "Perfumes",
-    "preco": 150,
-    "imagem": "https://dpwt1997.github.io/Ddstores-site/images/acqua-di-gio.jpg",
-    "descricao": "Eau de Parfum masculino de Giorgio Armani — notas marinhas e bergamota."
-  },
-  {
-    "id": 2,
-    "nome": "Very Good Girl",
-    "categoria": "Perfumes",
-    "preco": 150,
-    "imagem": "https://dpwt1997.github.io/Ddstores-site/images/very-good-girl.jpg",
-    "descricao": "Eau de Parfum feminino de Carolina Herrera — notas de rosa e baunilha."
-  }
-]
+{
+  "id": 1,
+  "nome": "Acqua di Giò Profondo",
+  "categoria": "Perfumes",
+  "preco": 150,
+  "imagem": "AQUI_O_LINK_RAW",
+  "descricao": "Eau de Parfum masculino de Giorgio Armani — notas marinhas e bergamota."
+}
