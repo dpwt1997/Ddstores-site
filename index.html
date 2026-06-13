@@ -1,20 +1,174 @@
-[
-  {
-    "id": 1,
-    "nome": "Acqua di Giò Profondo",
-    "categoria": "Perfumes",
-    "preco": 150,
-    "imagem": "",
-    "descricao": "Eau de Parfum masculino de Giorgio Armani — notas marinhas e bergamota."
-  },
-  {
-    "id": 2,
-    "nome": "Very Good Girl",
-    "categoria": "Perfumes",
-    "preco": 150,
-    "imagem": "",
-    "descricao": "Eau de Parfum feminino de Carolina Herrera — notas de rosa e baunilha."
-  }
-]
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DD Stores | Loja Oficial</title>
+
+    <!-- Tipografia premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #fff;
+        }
+
+        /* MENU */
+        header {
+            background: #000;
+            padding: 18px 0;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        header a {
+            color: #d4af37;
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        header a:hover {
+            color: #f5d77c;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #000, #111);
+        }
+
+        .hero img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 600;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #ccc;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 26px;
+            background: #d4af37;
+            color: #000;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #b9972e;
+        }
+
+        /* SECÇÃO DESTAQUES */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 32px;
+            color: #d4af37;
+        }
+
+        .produtos-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 28px;
+        }
+
+        .produto-card {
+            background: #111;
+            border-radius: 10px;
+            padding: 18px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .produto-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+        }
+
+        .produto-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .produto-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            margin: 12px 0 6px;
+            color: #fff;
+        }
+
+        .produto-card p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .preco {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 8px;
+            color: #d4af37;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">Home</a>
+    <a href="mulher.html">Mulher</a>
+    <a href="homem.html">Homem</a>
+    <a href="perfumes.html">Perfumes</a>
+    <a href="acessorios.html">Acessórios</a>
+    <a href="promocoes.html">Promoções</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="images/logo-ddstores.png" alt="DD Stores Logo">
+    <h1>Luxury & Exclusivity</h1>
+    <p>Descubra o universo DD STORES — perfumes, moda e elegância.</p>
+    <a href="perfumes.html" class="btn">Explorar Perfumes</a>
+</section>
+
+<h2>Novidades & Destaques</h2>
+
+<div class="produtos-container" id="lista-produtos"></div>
+
+<script src="script.js"></script>
+<script>
+    carregarProdutos("Perfumes");
+</script>
+
+</body>
+</html>
 
 
