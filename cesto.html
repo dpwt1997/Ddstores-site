@@ -9,25 +9,14 @@
 <body>
 
 <header>
-    <h1>Seu Cesto 🛒</h1>
-
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="mulher.html">Mulher</a>
-        <a href="homen.html">Homem</a>
-        <a href="perfumes.html">Perfumes</a>
-        <a href="acessorios.html">Acessórios</a>
-        <a href="promocoes.html">Promoções</a>
-        <a href="cesto.html">Cesto 🛒</a>
-    </nav>
+    <h1>Cesto 🛒</h1>
 </header>
 
-<a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
+<a href="index.html" class="btn-voltar">← Voltar</a>
 
 <section id="carrinho"></section>
 
 <script>
-    // Carregar carrinho salvo
     let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
     function mostrarCarrinho() {
@@ -38,23 +27,22 @@
             return;
         }
 
-        let html = "<h2>Produtos no Cesto</h2><ul>";
-
+        let html = "<ul>";
         carrinho.forEach((item, index) => {
             html += `
                 <li>
-                    <strong>${item.nome}</strong> — £${item.preco}
+                    ${item.nome} — £${item.preco}
                     <button onclick="remover(${index})">Remover</button>
                 </li>
             `;
         });
-
         html += "</ul>";
 
         html += `
-            <button onclick="finalizar()" style="margin-top:20px; padding:10px 15px; background:#000; color:#fff; border:none; border-radius:5px;">
-                Concluir Compra
-            </button>
+            <a href="https://wa.me/447747908758?text=Olá,%20quero%20finalizar%20a%20minha%20compra." 
+               style="display:inline-block; padding:10px 15px; background:#000; color:#fff; text-decoration:none; border-radius:5px;">
+               Finalizar Compra
+            </a>
         `;
 
         area.innerHTML = html;
@@ -63,12 +51,6 @@
     function remover(i) {
         carrinho.splice(i, 1);
         localStorage.setItem("carrinho", JSON.stringify(carrinho));
-        mostrarCarrinho();
-    }
-
-    function finalizar() {
-        alert("Compra concluída! Obrigado por comprar na DD STORES.");
-        localStorage.removeItem("carrinho");
         mostrarCarrinho();
     }
 
