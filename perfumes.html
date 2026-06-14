@@ -3,41 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DD Stores | Perfumes</title>
-
-    <style>
-        body { margin: 0; font-family: Arial; padding-top: 70px; }
-        .menu { background: #000; padding: 15px; text-align: center; position: fixed; top: 0; width: 100%; z-index: 999; }
-        .menu a { color: #fff; margin: 0 15px; font-size: 18px; font-weight: bold; text-decoration: none; }
-        .menu a:hover { color: #f0c040; }
-        header { background: #000; color: #fff; padding: 20px; text-align: center; font-size: 26px; }
-        #lista-produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; padding: 20px; max-width: 1100px; margin: auto; }
-        .produto-card { border: 1px solid #eee; padding: 15px; border-radius: 8px; text-align: center; }
-        .produto-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 6px; }
-        .preco { font-size: 20px; font-weight: bold; margin-top: 10px; }
-    </style>
+    <title>Perfumes | DD STORES</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <header>
+        <h1>Perfumes Importados</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="perfumes.html" class="ativo">Perfumes</a>
+            <a href="contactos.html">Contactos</a>
+        </nav>
+    </header>
 
-<nav class="menu">
-    <a href="index.html">Home</a>
-    <a href="mulher.html">Mulher</a>
-    <a href="homem.html">Homem</a>
-    <a href="perfumes.html">Perfumes</a>
-    <a href="acessorios.html">Acessórios</a>
-    <a href="promocoes.html">Promoções</a>
-    <a href="carrinho.html">🛒 Carrinho (<span id="contador">0</span>)</a>
-</nav>
+    <section id="lista-produtos">
+        <div class="produto-card">
+            <img src="images/acquadigio.png" alt="Acqua di Giò Profondo">
+            <h3>Acqua di Giò Profondo</h3>
+            <p class="preco">£89.99</p>
+            <p class="descricao">Eau de Parfum masculino — notas marinhas e bergamota.</p>
+        </div>
+    </section>
 
-<header>DD STORES — Perfumes Importados</header>
-
-<div id="lista-produtos"></div>
-
-<script src="script.js"></script>
-<script>
-    carregarProdutos("Perfumes");
-</script>
-
+    <footer>
+        <p>© 2026 DD STORES — Luxo e Exclusividade</p>
+    </footer>
 </body>
 </html>
