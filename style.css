@@ -1,1 +1,85 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FUNDO E TEXTO */
+body {
+    background-color: #000;
+    color: #d4af37;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* MENU */
+nav {
+    background-color: #000;
+    padding: 18px 0;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+/* HERO */
+.hero {
+    padding: 60px 20px;
+}
+
+.hero img {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 34px;
+    color: #d4af37;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 15px;
+    color: #f0e4c0;
+    opacity: 0.85;
+}
+
+/* BOTÃO */
+button {
+    margin-top: 25px;
+    background-color: #d4af37;
+    color: #000;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #000;
+}
 
