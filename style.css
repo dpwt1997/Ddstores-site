@@ -7,17 +7,14 @@ body {
     color: #000;
 }
 
-/* Mantém o dourado do menu */
 nav ul li a {
     color: #d4af37;
 }
 
-/* Mantém os títulos dourados */
 h1, h2 {
     color: #d4af37;
 }
 
-/* Ajusta o contraste dos botões */
 button {
     background-color: #d4af37;
     color: #fff;
