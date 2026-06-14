@@ -1,14 +1,13 @@
-.btn-voltar {
+.btn-comprar {
     display: inline-block;
-    margin: 20px 0;
     padding: 10px 15px;
-    background: #000;
+    background: #28a745;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
 }
 
-.btn-voltar:hover {
-    background: #333;
+.btn-comprar:hover {
+    background: #218838;
 }
