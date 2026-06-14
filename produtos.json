@@ -1,18 +1,12 @@
-[
-  {
-    "id": 1,
-    "nome": "Acqua di Giò Profondo",
-    "categoria": "Perfumes",
-    "preco": 150,
-    "imagem": "",
-    "descricao": "Eau de Parfum masculino de Giorgio Armani — notas marinhas e bergamota."
-  },
-  {
-    "id": 2,
-    "nome": "Very Good Girl",
-    "categoria": "Perfumes",
-    "preco": 150,
-    "imagem": "",
-    "descricao": "Eau de Parfum feminino de Carolina Herrera — notas de rosa e baunilha."
-  }
-]
+{
+  "produtos": [
+    {
+      "categoria": "perfumes",
+      "nome": "Acqua di Giò Profondo",
+      "descricao": "Giorgio Armani · Eau de Parfum. Notas aquáticas, aromáticas e profundas.",
+      "preco": "£00.00",
+      "imagem": "images/acqua-di-gio-profondo.jpg.png"
+    }
+  ]
+}
+
