@@ -4,15 +4,29 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: #000; /* mantém o texto visível sobre o fundo claro */
+    color: #000;
 }
 
-/* Mantém o menu dourado */
+/* Mantém o dourado do menu */
 nav ul li a {
     color: #d4af37;
 }
 
-/* Mantém o título dourado */
+/* Mantém os títulos dourados */
 h1, h2 {
     color: #d4af37;
+}
+
+/* Ajusta o contraste dos botões */
+button {
+    background-color: #d4af37;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b8962e;
 }
