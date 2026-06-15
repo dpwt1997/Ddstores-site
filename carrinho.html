@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cesto | DD STORES</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
 <header>
-    <h1>Cesto</h1>
+    <h1>Cesto de Compras</h1>
 
     <nav>
         <a href="index.html">Home</a>
@@ -24,18 +25,20 @@
 
 <a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
 
-<section id="carrinho-container">
-    <h2>O teu Cesto</h2>
+<section class="carrinho-container">
+
+    <h2>Os seus produtos</h2>
 
     <div id="lista-carrinho"></div>
 
     <h3>Total: <span id="total">0.00</span> €</h3>
 
-    <button id="limpar-carrinho" onclick="limparCarrinho()">Limpar Cesto</button>
+    <button onclick="limparCarrinho()" class="btn-limpar">Limpar Cesto</button>
 
-    <h2>Finalização de Compra</h2>
+    <h2>Finalizar Pedido</h2>
 
-    <form id="checkout-form">
+    <form onsubmit="event.preventDefault(); finalizarPedido();">
+
         <label>Nome Completo</label>
         <input type="text" id="nome" required>
 
@@ -49,26 +52,3 @@
         <input type="text" id="postal" required>
 
         <label>Telefone</label>
-        <input type="text" id="telefone" required>
-
-        <button type="button" onclick="finalizarPedido()">Finalizar Pedido</button>
-    </form>
-
-    <!-- ⭐ BOTÃO STRIPE (PAGAMENTO COM CARTÃO) ⭐ -->
-    <a href="TEU_LINK_STRIPE_AQUI" 
-       class="btn-pagar" 
-       style="display:inline-block; margin-top:20px; padding:12px 20px; background:#000; color:#fff; border-radius:5px; text-decoration:none; font-weight:bold;">
-       Pagar com Cartão (VISA / Mastercard / Apple Pay)
-    </a>
-
-    <p id="mensagem-sucesso" style="display:none; color:green; font-weight:bold; margin-top:20px;">
-        Pedido finalizado com sucesso! Obrigado pela tua compra 💛
-    </p>
-
-</section>
-
-<script src="script.js"></script>
-
-</body>
-</html>
-
