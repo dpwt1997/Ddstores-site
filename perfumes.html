@@ -1,17 +1,44 @@
-<div class="produto">
-    <img src="images/acqua-di-gio-profondo.jpg.png" alt="Acqua di Giò Profondo">
-    <h3>Acqua di Giò Profondo</h3>
-    <p>Giorgio Armani · Eau de Parfum</p>
-    <p>Notas aquáticas, aromáticas e profundas.</p>
-    <p><strong>£00.00</strong></p>
-    <button onclick="adicionarAoCarrinho('Acqua di Giò Profondo', '00.00')">Comprar</button>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfumes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="produtos-container">
+
+    <div class="produto">
+        <img src="images/acqua-di-gio-profondo.jpg.png" alt="Acqua di Giò Profondo">
+        <h3>Acqua di Giò Profondo</h3>
+        <p>Giorgio Armani · Eau de Parfum</p>
+        <p>Notas aquáticas, aromáticas e profundas.</p>
+        <p><strong>£00.00</strong></p>
+        <button onclick="adicionarAoCarrinho('Acqua di Giò Profondo', '00.00')">Comprar</button>
+    </div>
+
+    <div class="produto">
+        <img src="images/baccarat-rouge-540.jpg" alt="Baccarat Rouge 540">
+        <h3>Baccarat Rouge 540</h3>
+        <p>Maison Francis Kurkdjian · Eau de Parfum</p>
+        <p>Notas ambaradas, florais e sofisticadas.</p>
+        <p><strong>£00.00</strong></p>
+        <button onclick="adicionarAoCarrinho('Baccarat Rouge 540', '00.00')">Comprar</button>
+    </div>
+
 </div>
 
-<div class="produto">
-    <img src="images/baccarat-rouge-540.jpg" alt="Baccarat Rouge 540">
-    <h3>Baccarat Rouge 540</h3>
-    <p>Maison Francis Kurkdjian · Eau de Parfum</p>
-    <p>Notas ambaradas, florais e sofisticadas.</p>
-    <p><strong>£00.00</strong></p>
-    <button onclick="adicionarAoCarrinho('Baccarat Rouge 540', '00.00')">Comprar</button>
-</div>
+<script>
+function adicionarAoCarrinho(nome, preco) {
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    carrinho.push({ nome: nome, preco: preco });
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    alert(nome + " foi adicionado ao carrinho!");
+}
+</script>
+
+</body>
+</html>
+
