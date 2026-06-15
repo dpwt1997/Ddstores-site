@@ -3,46 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cesto | DD Stores</title>
+    <title>Cesto | DD STORES</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
 <header>
-    <h1>DD STORES</h1>
+    <h1>Cesto de Compras</h1>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="mulher.html">Mulher</a>
-        <a href="homen.html">Homem</a>
+        <a href="homem.html">Homem</a>
         <a href="perfumes.html">Perfumes</a>
         <a href="acessorios.html">Acessórios</a>
         <a href="promocoes.html">Promoções</a>
-
-        <!-- Carrinho com contador -->
         <a href="carrinho.html">Cesto 🛒 (<span id="contador">0</span>)</a>
     </nav>
 </header>
 
+<a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
+
 <section class="carrinho-container">
-    <h2>O teu Cesto</h2>
 
-    <ul id="lista-carrinho" class="lista-carrinho"></ul>
+    <h2>Os seus produtos</h2>
 
-    <p class="total">
-        Total: <span id="total-carrinho">0.00 €</span>
-    </p>
+    <div id="lista-carrinho"></div>
 
-    <button class="btn-finalizar" onclick="finalizarCompra()">
-        Finalizar Compra
-    </button>
-</section>
+    <h3>Total: <span id="total">0.00</span> €</h3>
 
-<footer>
-    <p>© 2026 DD Stores — Todos os direitos reservados.</p>
-</footer>
+    <button onclick="limparCarrinho()" class="btn-limpar">Limpar Cesto</button>
 
-<script src="script.js"></script>
+    <h2>Finalizar Pedido</h2>
 
-</body>
-</html>
+    <form onsubmit="event.preventDefault(); finalizarPedido();">
+
+        <label>Nome Completo</label>
+        <input type="text" id="nome" required>
+
+        <label>Email</label>
+        <input type="email" id="email" required>
+
+        <label>Morada</label>
+        <input type="text" id="morada" required>
+
+        <label>Código Postal</label>
+        <input type="text" id="postal" required>
+
+        <label>Telefone</label>
