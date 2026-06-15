@@ -2,61 +2,56 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfumes | DD STORES</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-
 <body>
 
 <header>
-    <h1>Categoria: Perfumes</h1>
+    <h1>Perfumes</h1>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="mulher.html">Mulher</a>
-        <a href="homen.html">Homem</a>
+        <a href="homem.html">Homem</a>
         <a href="perfumes.html">Perfumes</a>
         <a href="acessorios.html">Acessórios</a>
         <a href="promocoes.html">Promoções</a>
-
-        <!-- Carrinho com contador -->
         <a href="carrinho.html">Cesto 🛒 (<span id="contador">0</span>)</a>
     </nav>
 </header>
 
-<div class="produtos-container">
+<a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
 
+<section class="produtos-container">
+
+    <!-- PERFUME 1 -->
     <div class="produto">
-        <img src="images/acqua-di-gio-profondo.jpg.png" alt="Acqua di Giò Profondo">
+        <img src="imagens/acquadigio.jpg" alt="Acqua di Giò Profondo">
         <h3>Acqua di Giò Profondo</h3>
-        <p>Giorgio Armani · Eau de Parfum</p>
-        <p>Notas aquáticas, aromáticas e profundas.</p>
-        <p><strong>£00.00</strong></p>
-        <button onclick="adicionarAoCarrinho('Acqua di Giò Profondo', '00.00')">Comprar</button>
+        <p>85 €</p>
+        <button onclick="adicionarAoCarrinho('Acqua di Giò Profondo', 85)">Comprar</button>
     </div>
 
+    <!-- PERFUME 2 -->
     <div class="produto">
-        <img src="images/baccarat-rouge-540.jpg" alt="Baccarat Rouge 540">
+        <img src="imagens/baccarat.jpg" alt="Baccarat Rouge 540">
         <h3>Baccarat Rouge 540</h3>
-        <p>Maison Francis Kurkdjian · Eau de Parfum</p>
-        <p>Notas ambaradas, florais e sofisticadas.</p>
-        <p><strong>£00.00</strong></p>
-        <button onclick="adicionarAoCarrinho('Baccarat Rouge 540', '00.00')">Comprar</button>
-        <div class="produto">
-  <img src="images/la-vie-est-belle-elixir.jpg" alt="La Vie Est Belle L’Élixir">
-  <h3>La Vie Est Belle L’Élixir</h3>
-  <p>Perfume feminino da Lancôme, com notas doces e sofisticadas que celebram a beleza da vida. Fragrância intensa e elegante.</p>
-  <p class="preco">£145.00</p>
-  <button onclick="adicionarAoCarrinho('La Vie Est Belle L’Élixir', 145.00)">Comprar</button>
-</div>
-
+        <p>120 €</p>
+        <button onclick="adicionarAoCarrinho('Baccarat Rouge 540', 120)">Comprar</button>
     </div>
 
-</div>
+    <!-- PERFUME 3 -->
+    <div class="produto">
+        <img src="imagens/lavie.jpg" alt="La Vie Est Belle L’Élixir">
+        <h3>La Vie Est Belle L’Élixir</h3>
+        <p>95 €</p>
+        <button onclick="adicionarAoCarrinho('La Vie Est Belle L’Élixir', 95)">Comprar</button>
+    </div>
 
-<!-- Script do carrinho -->
-<script src="script.js"></script>
+</section>
 
 </body>
 </html>
-
