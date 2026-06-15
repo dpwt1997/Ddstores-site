@@ -3,89 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cesto | DD STORES</title>
+    <title>Cesto | DD Stores</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>Cesto 🛒 (<span id="contador">0</span>)</h1>
+    <h1>DD STORES</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mulher.html">Mulher</a>
+        <a href="homen.html">Homem</a>
+        <a href="perfumes.html">Perfumes</a>
+        <a href="acessorios.html">Acessórios</a>
+        <a href="promocoes.html">Promoções</a>
+
+        <!-- Carrinho com contador -->
+        <a href="carrinho.html">Cesto 🛒 (<span id="contador">0</span>)</a>
+    </nav>
 </header>
 
-<a href="index.html" class="btn-voltar">← Voltar</a>
+<section class="carrinho-container">
+    <h2>O teu Cesto</h2>
 
-<section id="carrinho"></section>
+    <ul id="lista-carrinho" class="lista-carrinho"></ul>
 
-<script>
-    function atualizarCesto() {
-        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-        const area = document.getElementById("carrinho");
-        const contador = document.getElementById("contador");
+    <p class="total">
+        Total: <span id="total-carrinho">0.00 €</span>
+    </p>
 
-        if (carrinho.length === 0) {
-            area.innerHTML = "<p>O seu cesto está vazio.</p>";
-            contador.textContent = 0;
-            return;
-        }
+    <button class="btn-finalizar" onclick="finalizarCompra()">
+        Finalizar Compra
+    </button>
+</section>
 
-        let html = "<ul>";
-        let total = 0;
+<footer>
+    <p>© 2026 DD Stores — Todos os direitos reservados.</p>
+</footer>
 
-        carrinho.forEach((item, index) => {
-            total += item.preco * item.qty;
-
-            html += `
-                <li style="margin-bottom:10px;">
-                    <strong>${item.nome}</strong><br>
-                    £${item.preco} x ${item.qty}  
-                    <button onclick="alterarQtd(${index}, -1)">-</button>
-                    <button onclick="alterarQtd(${index}, 1)">+</button>
-                    <button onclick="remover(${index})">Remover</button>
-                </li>
-            `;
-        });
-
-        html += "</ul>";
-
-        html += `
-            <h3>Total: £${total.toFixed(2)}</h3>
-
-            <a href="https://wa.me/447747908758?text=Olá,%20quero%20finalizar%20a%20minha%20compra.%0A%0A${encodeURIComponent(
-                carrinho.map(i => `${i.nome} (x${i.qty}) - £${(i.preco * i.qty).toFixed(2)}`).join("%0A")
-            )}"
-               style="display:inline-block; padding:10px 15px; background:#000; color:#fff; text-decoration:none; border-radius:5px;">
-               Finalizar Compra
-            </a>
-        `;
-
-        area.innerHTML = html;
-
-        contador.textContent = carrinho.reduce((t, item) => t + item.qty, 0);
-    }
-
-    function alterarQtd(index, valor) {
-        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-        carrinho[index].qty += valor;
-
-        if (carrinho[index].qty <= 0) {
-            carrinho.splice(index, 1);
-        }
-
-        localStorage.setItem("carrinho", JSON.stringify(carrinho));
-        atualizarCesto();
-    }
-
-    function remover(i) {
-        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-        carrinho.splice(i, 1);
-        localStorage.setItem("carrinho", JSON.stringify(carrinho));
-        atualizarCesto();
-    }
-
-    atualizarCesto();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
-
