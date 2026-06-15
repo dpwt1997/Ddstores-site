@@ -1,11 +1,65 @@
+// ---------------------- LISTA DE PRODUTOS ----------------------
+
+const produtos = [
+    {
+        nome: "Baccarat Rouge 540",
+        preco: 120,
+        imagem: "images/baccarat-rouge-540.jpg",
+        categoria: "Perfumes"
+    },
+    {
+        nome: "La Vie Est Belle L’Élixir",
+        preco: 95,
+        imagem: "images/la-vie-est-belle-elixir.jpg",
+        categoria: "Perfumes"
+    },
+    {
+        nome: "Acqua di Giò Profondo",
+        preco: 85,
+        imagem: "images/acquadigio.jpg",
+        categoria: "Perfumes"
+    }
+];
+
+// ---------------------- MOSTRAR PRODUTOS ----------------------
+
+function carregarProdutos() {
+    const container = document.getElementById("produtos-container");
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    produtos.forEach((p, index) => {
+        const card = document.createElement("div");
+        card.classList.add("produto-card");
+
+        card.innerHTML = `
+            <img src="${p.imagem}" alt="${p.nome}">
+            <h3>${p.nome}</h3>
+            <p class="preco">${p.preco} €</p>
+            <button onclick="adicionarAoCarrinho(${index})">Comprar</button>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
 // ---------------------- CARRINHO ----------------------
 
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+function adicionarAoCarrinho(index) {
+    carrinho.push(produtos[index]);
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    atualizarCarrinho();
+}
 
 function atualizarCarrinho() {
     const lista = document.getElementById("lista-carrinho");
     const totalSpan = document.getElementById("total");
     const contador = document.getElementById("contador");
+
+    if (!lista) return;
 
     lista.innerHTML = "";
     let total = 0;
@@ -20,11 +74,11 @@ function atualizarCarrinho() {
         `;
 
         lista.appendChild(div);
-        total += parseFloat(item.preco);
+        total += item.preco;
     });
 
-    totalSpan.textContent = total.toFixed(2);
-    contador.textContent = carrinho.length;
+    if (totalSpan) totalSpan.textContent = total.toFixed(2);
+    if (contador) contador.textContent = carrinho.length;
 }
 
 function removerItem(index) {
@@ -58,7 +112,6 @@ function finalizarPedido() {
         return;
     }
 
-    // Criar mensagem com os produtos
     let listaProdutos = "";
     carrinho.forEach(item => {
         listaProdutos += `- ${item.nome} (${item.preco} €)\n`;
@@ -66,9 +119,7 @@ function finalizarPedido() {
 
     const total = document.getElementById("total").textContent;
 
-    // ---------------------- WHATSAPP AUTOMÁTICO ----------------------
-
-    const numeroWhatsApp = "+447747908758"; // TEU NÚMERO
+    const numeroWhatsApp = "+447747908758";
 
     const mensagem = 
 `📦 NOVO PEDIDO DD STORES
@@ -90,17 +141,15 @@ ${listaProdutos}
 
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
 
-    // Abre o WhatsApp automaticamente
     window.open(url, "_blank");
 
-    // Mostra mensagem de sucesso no site
     document.getElementById("mensagem-sucesso").style.display = "block";
 
-    // Limpa o carrinho
     limparCarrinho();
 }
 
 // ---------------------- INICIAR ----------------------
-atualizarCarrinho();
 
+carregarProdutos();
+atualizarCarrinho();
 
