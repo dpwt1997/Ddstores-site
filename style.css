@@ -1,43 +1,62 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <title>Perfumes</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<div class="produtos-container">
-
-    <div class="produto">
-        <img src="images/acqua-di-gio-profondo.jpg.png" alt="Acqua di Giò Profondo">
-        <h3>Acqua di Giò Profondo</h3>
-        <p>Giorgio Armani · Eau de Parfum</p>
-        <p>Notas aquáticas, aromáticas e profundas.</p>
-        <p><strong>£00.00</strong></p>
-        <button onclick="adicionarAoCarrinho('Acqua di Giò Profondo', '00.00')">Comprar</button>
-    </div>
-
-    <div class="produto">
-        <img src="images/baccarat-rouge-540.jpg" alt="Baccarat Rouge 540">
-        <h3>Baccarat Rouge 540</h3>
-        <p>Maison Francis Kurkdjian · Eau de Parfum</p>
-        <p>Notas ambaradas, florais e sofisticadas.</p>
-        <p><strong>£00.00</strong></p>
-        <button onclick="adicionarAoCarrinho('Baccarat Rouge 540', '00.00')">Comprar</button>
-    </div>
-
-</div>
-
-<script>
-function adicionarAoCarrinho(nome, preco) {
-    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    carrinho.push({ nome: nome, preco: preco });
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    alert(nome + " foi adicionado ao carrinho!");
+/* Estilo geral da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
 }
-</script>
 
-</body>
-</html>
+/* Cabeçalho */
+header {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Container dos produtos */
+.produtos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Cada produto */
+.produto {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Imagens dos produtos */
+.produto img {
+    width: 180px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Títulos */
+.produto h3 {
+    margin: 10px 0 5px;
+}
+
+/* Botão comprar */
+.produto button {
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.produto button:hover {
+    background-color: #444;
+}
