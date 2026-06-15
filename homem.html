@@ -3,55 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DD STORES - Homem</title>
+    <title>Mulher | DD STORES</title>
     <link rel="stylesheet" href="style.css">
-    <script src="carrinho.js"></script>
 </head>
-
 <body>
 
 <header>
-    <h1>DD STORES</h1>
+    <h1>Categoria: Mulher</h1>
+
     <nav>
-        <a href="index.html">Início</a>
+        <a href="index.html">Home</a>
         <a href="mulher.html">Mulher</a>
-        <a href="homem.html">Homem</a>
-        <a href="acessorios.html">Acessórios</a>
+        <a href="homen.html">Homem</a>
         <a href="perfumes.html">Perfumes</a>
+        <a href="acessorios.html">Acessórios</a>
         <a href="promocoes.html">Promoções</a>
-        <a href="carrinho.html">Carrinho</a>
+
+        <!-- Carrinho com contador -->
+        <a href="carrinho.html">Cesto 🛒 (<span id="contador">0</span>)</a>
     </nav>
 </header>
 
-<h2>Categoria: Homem</h2>
+<a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
 
-<div class="produtos">
+<section id="lista-produtos">
+    <!-- Produtos da categoria Mulher vão aqui -->
+</section>
 
-    <div class="produto">
-        <img src="images/acqua-di-gio-profondo.jpg.png" alt="Acqua di Giò Profondo">
-        <h3>Acqua di Giò Profondo</h3>
-        <p>Fragrância masculina fresca e sofisticada da Armani.</p>
-        <p class="preco">£120.00</p>
-        <button onclick="adicionarAoCarrinho('Acqua di Giò Profondo', 120.00)">Comprar</button>
-    </div>
-
-    <div class="produto">
-        <img src="images/dior-sauvage.jpg" alt="Dior Sauvage">
-        <h3>Dior Sauvage</h3>
-        <p>Perfume masculino intenso e marcante, ideal para todas as ocasiões.</p>
-        <p class="preco">£135.00</p>
-        <button onclick="adicionarAoCarrinho('Dior Sauvage', 135.00)">Comprar</button>
-    </div>
-
-    <div class="produto">
-        <img src="images/acqua-di-gio-absolute.jpg" alt="Acqua di Giò Absolu">
-        <h3>Acqua di Giò Absolu</h3>
-        <p>Combinação perfeita entre frescor e intensidade.</p>
-        <p class="preco">£130.00</p>
-        <button onclick="adicionarAoCarrinho('Acqua di Giò Absolu', 130.00)">Comprar</button>
-    </div>
-
-</div>
+<!-- Script do carrinho -->
+<script src="script.js"></script>
 
 </body>
 </html>
