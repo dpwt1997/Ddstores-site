@@ -41,7 +41,6 @@ function atualizarContador() {
 
 // -------------------------
 // LISTAR ITENS NO CARRINHO
-// (para carrinho.html / cesto.html)
 // -------------------------
 
 function listarCarrinho() {
@@ -65,7 +64,6 @@ function listarCarrinho() {
         `;
         lista.appendChild(li);
 
-        // tenta converter preço em número (se vier como "00.00 €" etc.)
         let precoNum = parseFloat(
             String(item.preco).replace("€", "").replace(",", ".")
         );
@@ -111,7 +109,6 @@ function finalizarCompra() {
 
     let url = "https://wa.me/447747908758?text=" + mensagem;
 
-    // limpa o carrinho depois de gerar a mensagem
     localStorage.removeItem("carrinho");
     atualizarContador();
 
@@ -125,7 +122,6 @@ function finalizarCompra() {
 document.addEventListener("DOMContentLoaded", function () {
     atualizarContador();
 
-    // se estiver na página do carrinho, lista os itens
     if (document.getElementById("lista-carrinho")) {
         listarCarrinho();
     }
