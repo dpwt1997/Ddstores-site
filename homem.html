@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homem | DD STORES</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
 <header>
-    <h1>Categoria: Homem</h1>
+    <h1>Homem</h1>
 
     <nav>
         <a href="index.html">Home</a>
@@ -18,46 +19,39 @@
         <a href="perfumes.html">Perfumes</a>
         <a href="acessorios.html">Acessórios</a>
         <a href="promocoes.html">Promoções</a>
-
-        <!-- Carrinho com contador -->
         <a href="carrinho.html">Cesto 🛒 (<span id="contador">0</span>)</a>
     </nav>
 </header>
 
 <a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
 
-<section id="lista-produtos">
+<section class="produtos-container">
 
-    <!-- Exemplo de roupa masculina -->
+    <!-- PRODUTO 1 -->
     <div class="produto">
-        <img src="images/camiseta-homem.jpg" alt="Camiseta Masculina">
-        <h3>Camiseta Masculina Premium</h3>
-        <p>Camiseta confortável, tecido de alta qualidade, ideal para o dia a dia.</p>
-        <p class="preco">£25.00</p>
-        <button onclick="adicionarAoCarrinho('Camiseta Masculina Premium', 25.00)">Comprar</button>
+        <img src="imagens/camisahomem1.jpg" alt="Camisola Homem 1">
+        <h3>Camisola Homem Clássica</h3>
+        <p>25 €</p>
+        <button onclick="adicionarAoCarrinho('Camisola Homem Clássica', 25)">Comprar</button>
     </div>
 
+    <!-- PRODUTO 2 -->
     <div class="produto">
-        <img src="images/calcas-homem.jpg" alt="Calças Masculinas">
-        <h3>Calças Masculinas Slim Fit</h3>
-        <p>Calças modernas e elegantes, perfeitas para qualquer ocasião.</p>
-        <p class="preco">£40.00</p>
-        <button onclick="adicionarAoCarrinho('Calças Masculinas Slim Fit', 40.00)">Comprar</button>
+        <img src="imagens/camisahomem2.jpg" alt="Camisola Homem 2">
+        <h3>Camisola Casual Homem</h3>
+        <p>30 €</p>
+        <button onclick="adicionarAoCarrinho('Camisola Casual Homem', 30)">Comprar</button>
     </div>
 
+    <!-- PRODUTO 3 -->
     <div class="produto">
-        <img src="images/casaco-homem.jpg" alt="Casaco Masculino">
-        <h3>Casaco Masculino Casual</h3>
-        <p>Casaco leve e estiloso, ideal para dias frescos.</p>
-        <p class="preco">£55.00</p>
-        <button onclick="adicionarAoCarrinho('Casaco Masculino Casual', 55.00)">Comprar</button>
+        <img src="imagens/camisahomem3.jpg" alt="Camisola Homem 3">
+        <h3>Camisola Premium Homem</h3>
+        <p>40 €</p>
+        <button onclick="adicionarAoCarrinho('Camisola Premium Homem', 40)">Comprar</button>
     </div>
 
 </section>
 
-<!-- Script do carrinho -->
-<script src="script.js"></script>
-
 </body>
 </html>
-
