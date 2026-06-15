@@ -54,7 +54,14 @@
         <button type="button" onclick="finalizarPedido()">Finalizar Pedido</button>
     </form>
 
-    <p id="mensagem-sucesso" style="display:none; color:green; font-weight:bold;">
+    <!-- ⭐ BOTÃO STRIPE (PAGAMENTO COM CARTÃO) ⭐ -->
+    <a href="TEU_LINK_STRIPE_AQUI" 
+       class="btn-pagar" 
+       style="display:inline-block; margin-top:20px; padding:12px 20px; background:#000; color:#fff; border-radius:5px; text-decoration:none; font-weight:bold;">
+       Pagar com Cartão (VISA / Mastercard / Apple Pay)
+    </a>
+
+    <p id="mensagem-sucesso" style="display:none; color:green; font-weight:bold; margin-top:20px;">
         Pedido finalizado com sucesso! Obrigado pela tua compra 💛
     </p>
 
