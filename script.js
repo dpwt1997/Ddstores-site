@@ -1,155 +1,55 @@
-// ---------------------- LISTA DE PRODUTOS ----------------------
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfumes | DD STORES</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
 
-const produtos = [
-    {
-        nome: "Baccarat Rouge 540",
-        preco: 120,
-        imagem: "images/baccarat-rouge-540.jpg",
-        categoria: "Perfumes"
-    },
-    {
-        nome: "La Vie Est Belle L’Élixir",
-        preco: 95,
-        imagem: "images/la-vie-est-belle-elixir.jpg",
-        categoria: "Perfumes"
-    },
-    {
-        nome: "Acqua di Giò Profondo",
-        preco: 85,
-        imagem: "images/acquadigio.jpg",
-        categoria: "Perfumes"
-    }
-];
+<header>
+    <h1>Perfumes</h1>
 
-// ---------------------- MOSTRAR PRODUTOS ----------------------
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mulher.html">Mulher</a>
+        <a href="homem.html">Homem</a>
+        <a href="perfumes.html">Perfumes</a>
+        <a href="acessorios.html">Acessórios</a>
+        <a href="promocoes.html">Promoções</a>
+        <a href="carrinho.html">Cesto 🛒 (<span id="contador">0</span>)</a>
+    </nav>
+</header>
 
-function carregarProdutos() {
-    const container = document.getElementById("produtos-container");
-    if (!container) return;
+<a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
 
-    container.innerHTML = "";
+<section class="produtos-container">
 
-    produtos.forEach((p, index) => {
-        const card = document.createElement("div");
-        card.classList.add("produto-card");
+    <div class="produto">
+        <img src="images/acquadigio.jpg" alt="Acqua di Giò Profondo">
+        <h3>Acqua di Giò Profondo</h3>
+        <p>85 €</p>
+        <button onclick="adicionarAoCarrinho('Acqua di Giò Profundo', 85)">Comprar</button>
+    </div>
 
-        card.innerHTML = `
-            <img src="${p.imagem}" alt="${p.nome}">
-            <h3>${p.nome}</h3>
-            <p class="preco">${p.preco} €</p>
-            <button onclick="adicionarAoCarrinho(${index})">Comprar</button>
-        `;
+    <div class="produto">
+        <img src="images/baccarat-rouge-540.jpg" alt="Baccarat Rouge 540">
+        <h3>Baccarat Rouge 540</h3>
+        <p>120 €</p>
+        <button onclick="adicionarAoCarrinho('Baccarat Rouge 540', 120)">Comprar</button>
+    </div>
 
-        container.appendChild(card);
-    });
-}
+    <div class="produto">
+        <img src="images/la-vie-est-belle-elixir.jpg" alt="La Vie Est Belle L’Élixir">
+        <h3>La Vie Est Belle L’Élixir</h3>
+        <p>95 €</p>
+        <button onclick="adicionarAoCarrinho('La Vie Est Belle L’Élixir', 95)">Comprar</button>
+    </div>
 
-// ---------------------- CARRINHO ----------------------
+</section>
 
-let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-function adicionarAoCarrinho(index) {
-    carrinho.push(produtos[index]);
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    atualizarCarrinho();
-}
-
-function atualizarCarrinho() {
-    const lista = document.getElementById("lista-carrinho");
-    const totalSpan = document.getElementById("total");
-    const contador = document.getElementById("contador");
-
-    if (!lista) return;
-
-    lista.innerHTML = "";
-    let total = 0;
-
-    carrinho.forEach((item, index) => {
-        const div = document.createElement("div");
-        div.classList.add("item-carrinho");
-
-        div.innerHTML = `
-            <p><strong>${item.nome}</strong> - ${item.preco} €</p>
-            <button onclick="removerItem(${index})">Remover</button>
-        `;
-
-        lista.appendChild(div);
-        total += item.preco;
-    });
-
-    if (totalSpan) totalSpan.textContent = total.toFixed(2);
-    if (contador) contador.textContent = carrinho.length;
-}
-
-function removerItem(index) {
-    carrinho.splice(index, 1);
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    atualizarCarrinho();
-}
-
-function limparCarrinho() {
-    carrinho = [];
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    atualizarCarrinho();
-}
-
-// ---------------------- FINALIZAR PEDIDO ----------------------
-
-function finalizarPedido() {
-    const nome = document.getElementById("nome").value;
-    const email = document.getElementById("email").value;
-    const morada = document.getElementById("morada").value;
-    const postal = document.getElementById("postal").value;
-    const telefone = document.getElementById("telefone").value;
-
-    if (!nome || !email || !morada || !postal || !telefone) {
-        alert("Por favor, preenche todos os campos.");
-        return;
-    }
-
-    if (carrinho.length === 0) {
-        alert("O cesto está vazio.");
-        return;
-    }
-
-    let listaProdutos = "";
-    carrinho.forEach(item => {
-        listaProdutos += `- ${item.nome} (${item.preco} €)\n`;
-    });
-
-    const total = document.getElementById("total").textContent;
-
-    const numeroWhatsApp = "+447747908758";
-
-    const mensagem = 
-`📦 NOVO PEDIDO DD STORES
-
-👤 Cliente: ${nome}
-📧 Email: ${email}
-📞 Telefone: ${telefone}
-
-🏠 Morada:
-${morada}
-${postal}
-
-🛒 Produtos:
-${listaProdutos}
-
-💰 Total: ${total} €
-
-⚠️ Enviar imediatamente.`;
-
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-
-    window.open(url, "_blank");
-
-    document.getElementById("mensagem-sucesso").style.display = "block";
-
-    limparCarrinho();
-}
-
-// ---------------------- INICIAR ----------------------
-
-carregarProdutos();
-atualizarCarrinho();
+</body>
+</html>
 
