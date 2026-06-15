@@ -3,145 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DD Stores | Carrinho</title>
-
-    <style>
-        body { margin: 0; font-family: Arial; padding-top: 70px; }
-
-        .menu {
-            background: #000;
-            padding: 15px;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 999;
-        }
-
-        .menu a {
-            color: #fff;
-            margin: 0 15px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .menu a:hover { color: #f0c040; }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .item button {
-            background: red;
-            color: #fff;
-            border: none;
-            padding: 6px 12px;
-            cursor: pointer;
-        }
-
-        .total {
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        .finalizar {
-            margin-top: 20px;
-            padding: 12px 20px;
-            background: #000;
-            color: #fff;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-    </style>
+    <title>Cesto | DD STORES</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<nav class="menu">
-    <a href="index.html">Home</a>
-    <a href="mulher.html">Mulher</a>
-    <a href="homem.html">Homem</a>
-    <a href="perfumes.html">Perfumes</a>
-    <a href="acessorios.html">Acessórios</a>
-    <a href="promocoes.html">Promoções</a>
-    <a href="carrinho.html">🛒 Carrinho (<span id="contador">0</span>)</a>
-</nav>
+<header>
+    <h1>Cesto 🛒 (<span id="contador">0</span>)</h1>
+</header>
 
-<div class="container">
-    <h1>Carrinho</h1>
-    <div id="itens"></div>
+<a href="index.html" class="btn-voltar">← Voltar</a>
 
-    <div class="total">Total: £<span id="total">0.00</span></div>
-
-    <button class="finalizar" onclick="finalizarCompra()">Finalizar compra</button>
-</div>
+<section id="carrinho"></section>
 
 <script>
-    function atualizarCarrinho() {
-        const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-        const itensDiv = document.getElementById("itens");
+    function atualizarCesto() {
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        const area = document.getElementById("carrinho");
         const contador = document.getElementById("contador");
-        const totalSpan = document.getElementById("total");
 
-        itensDiv.innerHTML = "";
+        if (carrinho.length === 0) {
+            area.innerHTML = "<p>O seu cesto está vazio.</p>";
+            contador.textContent = 0;
+            return;
+        }
+
+        let html = "<ul>";
         let total = 0;
 
         carrinho.forEach((item, index) => {
             total += item.preco * item.qty;
 
-            itensDiv.innerHTML += `
-                <div class="item">
-                    <div>${item.nome} (x${item.qty})</div>
-                    <div>£${(item.preco * item.qty).toFixed(2)}</div>
+            html += `
+                <li style="margin-bottom:10px;">
+                    <strong>${item.nome}</strong><br>
+                    £${item.preco} x ${item.qty}  
+                    <button onclick="alterarQtd(${index}, -1)">-</button>
+                    <button onclick="alterarQtd(${index}, 1)">+</button>
                     <button onclick="remover(${index})">Remover</button>
-                </div>
+                </li>
             `;
         });
 
-        contador.textContent = carrinho.length;
-        totalSpan.textContent = total.toFixed(2);
+        html += "</ul>";
+
+        html += `
+            <h3>Total: £${total.toFixed(2)}</h3>
+
+            <a href="https://wa.me/447747908758?text=Olá,%20quero%20finalizar%20a%20minha%20compra.%0A%0A${encodeURIComponent(
+                carrinho.map(i => `${i.nome} (x${i.qty}) - £${(i.preco * i.qty).toFixed(2)}`).join("%0A")
+            )}"
+               style="display:inline-block; padding:10px 15px; background:#000; color:#fff; text-decoration:none; border-radius:5px;">
+               Finalizar Compra
+            </a>
+        `;
+
+        area.innerHTML = html;
+
+        contador.textContent = carrinho.reduce((t, item) => t + item.qty, 0);
     }
 
-    function remover(index) {
-        const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-        carrinho.splice(index, 1);
-        localStorage.setItem("carrinho", JSON.stringify(carrinho));
-        atualizarCarrinho();
-    }
+    function alterarQtd(index, valor) {
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-    function finalizarCompra() {
-        const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+        carrinho[index].qty += valor;
 
-        if (carrinho.length === 0) {
-            alert("O carrinho está vazio.");
-            return;
+        if (carrinho[index].qty <= 0) {
+            carrinho.splice(index, 1);
         }
 
-        let mensagem = "Olá, gostaria de finalizar a compra:%0A%0A";
-
-        carrinho.forEach(item => {
-            mensagem += `• ${item.nome} (x${item.qty}) - £${(item.preco * item.qty).toFixed(2)}%0A`;
-        });
-
-        const url = `https://wa.me/447747908758?text=${mensagem}`;
-        window.open(url, "_blank");
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        atualizarCesto();
     }
 
-    atualizarCarrinho();
+    function remover(i) {
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        carrinho.splice(i, 1);
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        atualizarCesto();
+    }
+
+    atualizarCesto();
 </script>
 
 </body>
 </html>
+
