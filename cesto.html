@@ -3,59 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cesto | DD STORES</title>
+    <title>Cesto | DD Stores</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>Cesto 🛒</h1>
+    <h1>DD STORES</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mulher.html">Mulher</a>
+        <a href="homen.html">Homem</a>
+        <a href="perfumes.html">Perfumes</a>
+        <a href="acessorios.html">Acessórios</a>
+        <a href="promocoes.html">Promoções</a>
+
+        <!-- Carrinho com contador -->
+        <a href="carrinho.html">Cesto 🛒 (<span id="contador">0</span>)</a>
+    </nav>
 </header>
 
-<a href="index.html" class="btn-voltar">← Voltar</a>
+<section class="carrinho-container">
+    <h2>O teu Cesto</h2>
 
-<section id="carrinho"></section>
+    <ul id="lista-carrinho" class="lista-carrinho"></ul>
 
-<script>
-    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    <p class="total">
+        Total: <span id="total-carrinho">0.00 €</span>
+    </p>
 
-    function mostrarCarrinho() {
-        const area = document.getElementById("carrinho");
+    <button class="btn-finalizar" onclick="finalizarCompra()">
+        Finalizar Compra
+    </button>
+</section>
 
-        if (carrinho.length === 0) {
-            area.innerHTML = "<p>O seu cesto está vazio.</p>";
-            return;
-        }
+<footer>
+    <p>© 2026 DD Stores — Todos os direitos reservados.</p>
+</footer>
 
-        let html = "<ul>";
-        carrinho.forEach((item, index) => {
-            html += `
-                <li>
-                    ${item.nome} — £${item.preco}
-                    <button onclick="remover(${index})">Remover</button>
-                </li>
-            `;
-        });
-        html += "</ul>";
-
-        html += `
-            <a href="https://wa.me/447747908758?text=Olá,%20quero%20finalizar%20a%20minha%20compra." 
-               style="display:inline-block; padding:10px 15px; background:#000; color:#fff; text-decoration:none; border-radius:5px;">
-               Finalizar Compra
-            </a>
-        `;
-
-        area.innerHTML = html;
-    }
-
-    function remover(i) {
-        carrinho.splice(i, 1);
-        localStorage.setItem("carrinho", JSON.stringify(carrinho));
-        mostrarCarrinho();
-    }
-
-    mostrarCarrinho();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
