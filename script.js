@@ -1,128 +1,105 @@
-// -------------------------
-// CARRINHO - BASE
-// -------------------------
+// ---------------------- CARRINHO ----------------------
 
-function obterCarrinho() {
-    return JSON.parse(localStorage.getItem("carrinho")) || [];
-}
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-function guardarCarrinho(carrinho) {
-    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-}
-
-// -------------------------
-// ADICIONAR AO CARRINHO
-// -------------------------
-
-function adicionarAoCarrinho(nome, preco) {
-    let carrinho = obterCarrinho();
-
-    carrinho.push({
-        nome: nome,
-        preco: preco
-    });
-
-    guardarCarrinho(carrinho);
-    atualizarContador();
-    alert("Produto adicionado ao cesto: " + nome);
-}
-
-// -------------------------
-// CONTADOR NO MENU
-// -------------------------
-
-function atualizarContador() {
-    let carrinho = obterCarrinho();
-    let span = document.getElementById("contador");
-    if (span) {
-        span.textContent = carrinho.length;
-    }
-}
-
-// -------------------------
-// LISTAR ITENS NO CARRINHO
-// -------------------------
-
-function listarCarrinho() {
-    let carrinho = obterCarrinho();
-    let lista = document.getElementById("lista-carrinho");
-    let totalEl = document.getElementById("total-carrinho");
-
-    if (!lista) return;
+function atualizarCarrinho() {
+    const lista = document.getElementById("lista-carrinho");
+    const totalSpan = document.getElementById("total");
+    const contador = document.getElementById("contador");
 
     lista.innerHTML = "";
-
     let total = 0;
 
     carrinho.forEach((item, index) => {
-        let li = document.createElement("li");
-        li.className = "item-carrinho";
-        li.innerHTML = `
-            <span>${item.nome}</span>
-            <span>${item.preco}</span>
+        const div = document.createElement("div");
+        div.classList.add("item-carrinho");
+
+        div.innerHTML = `
+            <p><strong>${item.nome}</strong> - ${item.preco} €</p>
             <button onclick="removerItem(${index})">Remover</button>
         `;
-        lista.appendChild(li);
 
-        let precoNum = parseFloat(
-            String(item.preco).replace("€", "").replace(",", ".")
-        );
-        if (!isNaN(precoNum)) {
-            total += precoNum;
-        }
+        lista.appendChild(div);
+        total += parseFloat(item.preco);
     });
 
-    if (totalEl) {
-        totalEl.textContent = total.toFixed(2) + " €";
-    }
+    totalSpan.textContent = total.toFixed(2);
+    contador.textContent = carrinho.length;
 }
-
-// -------------------------
-// REMOVER ITEM DO CARRINHO
-// -------------------------
 
 function removerItem(index) {
-    let carrinho = obterCarrinho();
     carrinho.splice(index, 1);
-    guardarCarrinho(carrinho);
-    atualizarContador();
-    listarCarrinho();
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    atualizarCarrinho();
 }
 
-// -------------------------
-// FINALIZAR COMPRA -> WHATSAPP
-// -------------------------
+function limparCarrinho() {
+    carrinho = [];
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    atualizarCarrinho();
+}
 
-function finalizarCompra() {
-    let carrinho = obterCarrinho();
+// ---------------------- FINALIZAR PEDIDO ----------------------
+
+function finalizarPedido() {
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const morada = document.getElementById("morada").value;
+    const postal = document.getElementById("postal").value;
+    const telefone = document.getElementById("telefone").value;
+
+    if (!nome || !email || !morada || !postal || !telefone) {
+        alert("Por favor, preenche todos os campos.");
+        return;
+    }
 
     if (carrinho.length === 0) {
         alert("O cesto está vazio.");
         return;
     }
 
-    let mensagem = "Olá, quero finalizar a minha compra:%0A%0A";
-
-    carrinho.forEach((item, i) => {
-        mensagem += `${i + 1}. ${item.nome} - ${item.preco}%0A`;
+    // Criar mensagem com os produtos
+    let listaProdutos = "";
+    carrinho.forEach(item => {
+        listaProdutos += `- ${item.nome} (${item.preco} €)\n`;
     });
 
-    let url = "https://wa.me/447747908758?text=" + mensagem;
+    const total = document.getElementById("total").textContent;
 
-    localStorage.removeItem("carrinho");
-    atualizarContador();
+    // ---------------------- WHATSAPP AUTOMÁTICO ----------------------
 
+    const numeroWhatsApp = "+447747908758"; // TEU NÚMERO
+
+    const mensagem = 
+`📦 NOVO PEDIDO DD STORES
+
+👤 Cliente: ${nome}
+📧 Email: ${email}
+📞 Telefone: ${telefone}
+
+🏠 Morada:
+${morada}
+${postal}
+
+🛒 Produtos:
+${listaProdutos}
+
+💰 Total: ${total} €
+
+⚠️ Enviar imediatamente.`;
+
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+    // Abre o WhatsApp automaticamente
     window.open(url, "_blank");
+
+    // Mostra mensagem de sucesso no site
+    document.getElementById("mensagem-sucesso").style.display = "block";
+
+    // Limpa o carrinho
+    limparCarrinho();
 }
 
-// -------------------------
-// INICIALIZAÇÃO
-// -------------------------
+// ---------------------- INICIAR ----------------------
+atualizarCarrinho();
 
-document.addEventListener("DOMContentLoaded", function () {
-    atualizarContador();
-
-    if (document.getElementById("lista-carrinho")) {
-        listarCarrinho();
-    }
-});
