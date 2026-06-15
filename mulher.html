@@ -3,35 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mulher | DD STORES</title>
+    <title>Homem | DD STORES</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
 <header>
-    <h1>Categoria: Mulher</h1>
+    <h1>Homem</h1>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="mulher.html">Mulher</a>
-        <a href="homen.html">Homem</a>
+        <a href="homem.html">Homem</a>
         <a href="perfumes.html">Perfumes</a>
         <a href="acessorios.html">Acessórios</a>
         <a href="promocoes.html">Promoções</a>
-
-        <!-- Carrinho com contador -->
         <a href="carrinho.html">Cesto 🛒 (<span id="contador">0</span>)</a>
     </nav>
 </header>
 
 <a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
 
-<section id="lista-produtos">
-    <!-- Produtos da categoria Mulher vão aqui -->
-</section>
+<section class="produtos-container">
 
-<!-- Script do carrinho -->
-<script src="script.js"></script>
+    <!-- PRODUTO 1 -->
+    <div class="produto">
+        <img src="imagens/camisahomem1.jpg" alt="Camisola Homem 1">
+        <h3>Camisola Homem Clássica</h3>
+        <p>25 €</p>
+        <button onclick="adicionarAoCarrinho('Camisola Homem Clássica', 25)">Comprar</button>
+    </div>
+
+    <!-- PRODUTO 2 -->
+    <div class="produto">
+        <img src="imagens/camisahomem2.jpg" alt="Camisola Homem 2">
+        <h3>Camisola Casual Homem</h3>
+        <p>30 €</p>
+        <button onclick="adicionarAoCarrinho('Camisola Casual Homem', 30)">Comprar</button>
+    </div>
+
+    <!-- PRODUTO 3 -->
+    <div class="produto">
+        <img src="imagens/camisahomem3.jpg" alt="Camisola Homem 3">
+        <h3>Camisola Premium Homem</h3>
+        <p>40 €</p>
+        <button onclick="adicionarAoCarrinho('Camisola Premium Homem', 40)">Comprar</button>
+    </div>
+
+</section>
 
 </body>
 </html>
+
