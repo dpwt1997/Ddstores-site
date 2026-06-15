@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mulher | DD STORES</title>
+    <title>Homem | DD STORES</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>Categoria: Mulher</h1>
+    <h1>Categoria: Homem</h1>
 
     <nav>
         <a href="index.html">Home</a>
         <a href="mulher.html">Mulher</a>
-        <a href="homen.html">Homem</a>
+        <a href="homem.html">Homem</a>
         <a href="perfumes.html">Perfumes</a>
         <a href="acessorios.html">Acessórios</a>
         <a href="promocoes.html">Promoções</a>
@@ -27,7 +27,34 @@
 <a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
 
 <section id="lista-produtos">
-    <!-- Produtos da categoria Mulher vão aqui -->
+
+    <!-- Produto Favia -->
+    <div class="produto">
+        <img src="images/favia.jpg" alt="Favia">
+        <h3>Favia</h3>
+        <p>Perfume masculino elegante, marcante e moderno.</p>
+        <p class="preco">£110.00</p>
+        <button onclick="adicionarAoCarrinho('Favia', 110.00)">Comprar</button>
+    </div>
+
+    <!-- Acqua di Giò Profondo -->
+    <div class="produto">
+        <img src="images/acqua-di-gio-profondo.jpg.png" alt="Acqua di Giò Profondo">
+        <h3>Acqua di Giò Profondo</h3>
+        <p>Fragrância masculina fresca e sofisticada da Armani.</p>
+        <p class="preco">£120.00</p>
+        <button onclick="adicionarAoCarrinho('Acqua di Giò Profondo', 120.00)">Comprar</button>
+    </div>
+
+    <!-- Dior Sauvage -->
+    <div class="produto">
+        <img src="images/dior-sauvage.jpg" alt="Dior Sauvage">
+        <h3>Dior Sauvage</h3>
+        <p>Perfume masculino intenso e marcante.</p>
+        <p class="preco">£135.00</p>
+        <button onclick="adicionarAoCarrinho('Dior Sauvage', 135.00)">Comprar</button>
+    </div>
+
 </section>
 
 <!-- Script do carrinho -->
@@ -35,3 +62,4 @@
 
 </body>
 </html>
+
