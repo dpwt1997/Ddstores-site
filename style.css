@@ -1,89 +1,132 @@
-/* Estilo geral da página */
+/* ============================
+   ESTILO GERAL DO SITE
+   ============================ */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #000; /* fundo preto */
+    color: #fff; /* texto branco */
 }
 
-/* Cabeçalho */
+/* ============================
+   CABEÇALHO
+   ============================ */
+
 header {
-    background-color: #222;
-    color: white;
+    background-color: #000;
+    color: #d4af37; /* dourado */
     padding: 20px;
     text-align: center;
+    border-bottom: 2px solid #d4af37;
 }
 
-/* Container dos produtos */
-.produtos-container {
+header h1 {
+    color: #d4af37;
+    text-shadow: 0 0 8px rgba(212,175,55,0.4);
+}
+
+/* MENU */
+nav a {
+    color: #d4af37;
+    font-weight: bold;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* ============================
+   PRODUTOS (todas as páginas)
+   ============================ */
+
+.produtos-container,
+.produtos-grid,
+.grid-destaques {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
     padding: 20px;
 }
 
-/* Cada produto */
-.produto {
-    background-color: white;
+/* Cartões de produto */
+.produto,
+.produto-card {
+    background-color: #111;
     border-radius: 10px;
     padding: 15px;
     width: 220px;
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    border: 1px solid #d4af37;
+    box-shadow: 0 2px 6px rgba(212,175,55,0.25);
 }
 
-/* Imagens dos produtos */
-.produto img {
+/* Imagens */
+.produto img,
+.produto-card img {
     width: 180px;
     height: auto;
     object-fit: cover;
     border-radius: 8px;
+    border: 1px solid #d4af37;
 }
 
-/* Títulos */
-.produto h3 {
+/* Títulos dos produtos */
+.produto h3,
+.produto-card h3 {
+    color: #d4af37;
     margin: 10px 0 5px;
 }
 
-/* Botão comprar */
-.produto button {
-    background-color: #222;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 5px;
+/* Preço */
+.preco {
+    color: #fff;
+    font-weight: bold;
 }
 
-.produto button:hover {
-    background-color: #444;
+/* Botões */
+button,
+.btn-comprar,
+.btn-hero,
+.btn-voltar {
+    background-color: #000;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-weight: bold;
 }
-/* HERO */
+
+button:hover,
+.btn-comprar:hover,
+.btn-hero:hover,
+.btn-voltar:hover {
+    background-color: #d4af37;
+    color: #000;
+}
+
+/* ============================
+   HERO (página inicial)
+   ============================ */
+
 .hero {
     background: url('images/banner.jpg') center/cover no-repeat;
     padding: 80px 20px;
     text-align: center;
     color: #fff;
+    border-bottom: 2px solid #d4af37;
 }
 
-.btn-hero {
-    background: #111;
-    color: #fff;
-    padding: 12px 22px;
-    border-radius: 8px;
-    display: inline-block;
-    margin-top: 15px;
-    font-size: 18px;
-    transition: 0.3s;
-}
+/* ============================
+   CATEGORIAS (index)
+   ============================ */
 
-.btn-hero:hover {
-    background: #e60023;
-}
-
-/* CATEGORIAS */
 .grid-categorias {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -93,10 +136,11 @@ header {
 
 .cat-card {
     text-align: center;
-    background: #fff;
+    background: #111;
     border-radius: 12px;
     padding: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid #d4af37;
+    box-shadow: 0 4px 12px rgba(212,175,55,0.25);
     transition: 0.3s;
 }
 
@@ -109,13 +153,44 @@ header {
     height: 180px;
     object-fit: cover;
     border-radius: 10px;
+    border: 1px solid #d4af37;
 }
 
-/* DESTAQUES */
-.grid-destaques {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 25px;
+.cat-card h3 {
+    color: #d4af37;
+}
+
+/* ============================
+   CARRINHO
+   ============================ */
+
+#lista-carrinho div {
+    background: #111;
+    border: 1px solid #d4af37;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+#total {
+    color: #d4af37;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#mensagem-sucesso {
+    color: #d4af37;
+    font-weight: bold;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+
+footer {
+    text-align: center;
     padding: 20px;
+    color: #d4af37;
+    border-top: 2px solid #d4af37;
+    margin-top: 40px;
 }
-
