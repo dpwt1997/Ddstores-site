@@ -32,6 +32,16 @@
             font-weight: bold;
             margin-top: 10px;
         }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: 1px solid #d4af37;
+            background: #000;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -63,7 +73,27 @@
 
     <button onclick="limparCarrinho()">Limpar Cesto</button>
 
-    <!-- ⭐ BOTÃO DE PAGAMENTO AQUI ⭐ -->
+    <!-- ⭐ FORMULÁRIO DE DADOS DO CLIENTE ⭐ -->
+    <form id="dados-cliente" style="margin-top:20px; color:#d4af37;">
+        <h3>Dados do Cliente</h3>
+
+        <label>Nome Completo:</label>
+        <input type="text" id="nome" required>
+
+        <label>Telefone:</label>
+        <input type="tel" id="telefone" required>
+
+        <label>Morada:</label>
+        <input type="text" id="morada" required>
+
+        <label>Código Postal:</label>
+        <input type="text" id="postal" required>
+
+        <label>Email:</label>
+        <input type="email" id="email" required>
+    </form>
+
+    <!-- ⭐ BOTÃO DE PAGAMENTO ⭐ -->
     <a href="https://buy.stripe.com/test_00weV55b8bk8dBN0uKgw000"
        class="btn-comprar"
        style="
