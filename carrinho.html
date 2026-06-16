@@ -6,7 +6,35 @@
     <title>Cesto | DD STORES</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+
+    <style>
+        .carrinho-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: #111;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #d4af37;
+            box-shadow: 0 0 10px rgba(212,175,55,0.3);
+        }
+
+        #lista-carrinho div {
+            background: #000;
+            border: 1px solid #d4af37;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        #total {
+            color: #d4af37;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
 <header>
@@ -25,30 +53,50 @@
 
 <a href="index.html" class="btn-voltar">← Voltar ao Menu Principal</a>
 
-<section class="carrinho-container">
+<div class="carrinho-container">
 
     <h2>Os seus produtos</h2>
 
     <div id="lista-carrinho"></div>
 
-    <h3>Total: <span id="total">0.00</span> €</h3>
+    <p id="total">Total: 0 €</p>
 
-    <button onclick="limparCarrinho()" class="btn-limpar">Limpar Cesto</button>
+    <button onclick="limparCarrinho()">Limpar Cesto</button>
+</div>
 
-    <h2>Finalizar Pedido</h2>
+<script>
+    function carregarCarrinho() {
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        let lista = document.getElementById("lista-carrinho");
+        let total = 0;
 
-    <form onsubmit="event.preventDefault(); finalizarPedido();">
+        lista.innerHTML = "";
 
-        <label>Nome Completo</label>
-        <input type="text" id="nome" required>
+        carrinho.forEach((item, index) => {
+            total += item.preco;
 
-        <label>Email</label>
-        <input type="email" id="email" required>
+            lista.innerHTML += `
+                <div>
+                    <strong>${item.nome}</strong><br>
+                    ${item.preco} €
+                </div>
+            `;
+        });
 
-        <label>Morada</label>
-        <input type="text" id="morada" required>
+        document.getElementById("total").textContent = "Total: " + total.toFixed(2) + " €";
+    }
 
-        <label>Código Postal</label>
-        <input type="text" id="postal" required>
+    function limparCarrinho() {
+        localStorage.removeItem("carrinho");
+        carregarCarrinho();
+        atualizarContador();
+    }
 
-        <label>Telefone</label>
+    document.addEventListener("DOMContentLoaded", () => {
+        carregarCarrinho();
+        atualizarContador();
+    });
+</script>
+
+</body>
+</html>
